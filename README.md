@@ -1,31 +1,74 @@
-# Back-End
-This is the back-end part of the project
-## INTEGRANTES
-1. Primer Subgrupo
-    - Guevara Morales, Jose Alberto       Carné: C03569
-    - Gutiérrez Altamirano, Darvin Jafet  Carné: B93600
-    - Gutiérrez Peña, Ana Catalina        Carné: C03637
-    - Laguna Cortés, Nicole Alexandra     Carné: C04141
+<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
-2. Segundo Subgrupo 
-    - Barrantes Lizano, Maria Valeria     Carné: C01007 
-    - Canales Carvajal, Mary Angel        Carné: C01658 
-    - Díaz González, Diego Alessandro     Carné: C02623 
-    - Morales Villegas, Cesar             Carné: B95329
+<p align="center">
+<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+</p>
 
-3. Tercer Subgrupo
-    - Barquero Pérez, Elieth Johanna      Carné: C08811  
-    - Bustos Rodríguez, Derian Alberto    Carné: C08837 
-    - Ramírez Villalobos, Andrey Gerardo  Carné: C06396 
-    - Salazar Ruiz, José Fabio            Carné: C07162
+## Replit setup
+1. run `php artisan key:generate` to generate an unique key for your project
+1. set environment variables in `.laravel.env`
+1. ▶ Run
 
-4. Cuarto Subgrupo
-    - Gutiérrez Peréz, Stuarth José       Carné: B93644  
-    - Montero Fajardo, Jose Mario         Carné: B95022 
-    - Picado Rojas, Deyner Alexander      Carné: C05980
+**Laravel doesn't support replit's database,
+so you have to use an external database :(**
 
-5. Quinto Subgrupo
-    - Carranza Solano, Randall            Carné: B81646 
-    - García Villalta, Anthony            Carné: B93213
-    - Salas Salas, Anthony                Carné: C07095
-    - Soto Hidalgo, Stefanny              Carné: B67057
+----
+
+## About Laravel
+
+Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+
+- [Simple, fast routing engine](https://laravel.com/docs/routing).
+- [Powerful dependency injection container](https://laravel.com/docs/container).
+- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
+- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
+- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
+- [Robust background job processing](https://laravel.com/docs/queues).
+- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+
+Laravel is accessible, powerful, and provides tools required for large, robust applications.
+
+## Learning Laravel
+
+Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+
+If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+
+## Laravel Sponsors
+
+We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+
+### Premium Partners
+
+- **[Vehikl](https://vehikl.com/)**
+- **[Tighten Co.](https://tighten.co)**
+- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
+- **[64 Robots](https://64robots.com)**
+- **[Cubet Techno Labs](https://cubettech.com)**
+- **[Cyber-Duck](https://cyber-duck.co.uk)**
+- **[Many](https://www.many.co.uk)**
+- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
+- **[DevSquad](https://devsquad.com)**
+- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
+- **[OP.GG](https://op.gg)**
+- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
+- **[Lendio](https://lendio.com)**
+
+## Contributing
+
+Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+
+## Code of Conduct
+
+In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+
+## Security Vulnerabilities
+
+If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+
+## License
+
+The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
