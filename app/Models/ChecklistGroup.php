@@ -12,12 +12,7 @@ class ChecklistGroup extends Model
     protected $table = 'checklist_groups';
     protected $fillable = [
               'name',
-              'user_id',
     ];
-
-  public function user(){
-    return $this->belongsTo(User::class, 'user_id');
-  }
 
   public function checklist(){
     return $this->hasMany(Checklist::class);

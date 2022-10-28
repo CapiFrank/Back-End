@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Hash;
 class apiController extends Controller
 {
     //
-  public function users(Request $request)
+  /*public function users(Request $request)
   {
     if($request->has('active'))
     {
@@ -19,7 +19,7 @@ class apiController extends Controller
       $users = User::all();
     }
     return response()->json($users);
-  }
+  }*/
 
   public function register(Request $request)
   {

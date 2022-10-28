@@ -9,25 +9,24 @@ class Task extends Model
 {
     use HasFactory;
     protected $primaryKey = 'id';
-    protected $foreingKey = 'note_id';
-    protected $foreingKey = 'label_id';
-    protected $foreingKey = 'checklist_id';
-    protected $table = 'tasks';
     protected $fillable = [
-            'my_day',
+           'my_day',
            'important',
            'contents',
            'final_date',
            'note_id',
-            'label_id',
+           'label_id',
            'checklist_id',
+           'user_id',
     ];
-
+  public function user(){
+    return $this->belongsTo(User::class, 'user_id');
+  }
   public function checklist(){
-    return $this->belongsTo(Checklist:class, 'checklist_id');
+    return $this->belongsTo(Checklist::class, 'checklist_id');
   }
   public function label(){
-    return $this->belongsTo(Label:class, 'label_id');
+    return $this->belongsTo(Label::class, 'label_id');
   }
   public function note(){
     return $this->belongsTo(Note::class, 'note_id');
