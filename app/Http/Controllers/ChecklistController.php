@@ -46,7 +46,8 @@ class ChecklistController extends Controller
      */
     public function show(Checklist $checklist)
     {
-        //
+      $lists = Checklist::all();
+    return response()->json($lists);
     }
 
     /**

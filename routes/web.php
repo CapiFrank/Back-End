@@ -18,7 +18,3 @@ Route::get('/', function () {
 });
 
 
-Route::get('/G4', function () {
-    return view('G4.PaginaPrincipal');
-});
-

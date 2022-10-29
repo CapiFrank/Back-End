@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Task;
 
 class TaskController extends Controller
 {
@@ -13,7 +14,7 @@ class TaskController extends Controller
      */
     public function index()
     {
-        //
+        
     }
 
     /**
@@ -43,9 +44,26 @@ class TaskController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function AgregueAMiDia($id)
     {
-        //
+      $laTarea = Task::find($id);
+      $laTarea -> my_day = true;
+      $laTarea -> save();
+      return 'Se ha modificado exitosamente';
+    }
+    public function AgregueAImportante($id)
+    {
+      $laTarea = Task::find($id);
+      $laTarea -> important = true;
+      $laTarea -> save();
+      return 'Se ha modificado exitosamente';
+    }
+    public function AgregueAPlaneado(Request $request)
+    {
+      $elId = $request -> id;
+      $laFecha = $request -> final_date;
+      $laTarea = Task::find($elId);      
+      return $laTarea -> title;
     }
 
     /**
