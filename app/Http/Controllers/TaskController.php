@@ -37,9 +37,24 @@ class TaskController extends Controller
     {
         //
     }
-
+    public function show(Request $request)
+    {
+      if($request->has('myday'))
+      {
+        $task = Task::where('my_day',true)->get();  
+      }else if($request->has('important')){
+        $task = Task::where('important',true)->get();
+      }else if($request->has('planned')){
+        $task = Task::whereNotNull('final_date')->get();
+      }
+      else
+      {
+        $task = Task::all();
+      }
+    return response()->json($task);
+    }
     /**
-     * Display the specified resource.
+     * .
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response

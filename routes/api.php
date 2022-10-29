@@ -14,7 +14,7 @@ use App\Http\Controllers\TaskController;
   
 
 /*
-|--------------------------------------------------------------------------
+|-------------------------------------------------------------------------
 | API Routes
 |--------------------------------------------------------------------------
 |
@@ -42,3 +42,4 @@ Route::put('/midia/{id}',[TaskController::class,'AgregueAMiDia']);
 Route::put('/important/{id}',[TaskController::class,'AgregueAImportante']);
 Route::put('/planeado',[TaskController::class,'AgregueAPlaneado']);
 Route::get('/checklists',[ChecklistController::class,'show']);
+Route::get('/task',[TaskController::class,'show']);
