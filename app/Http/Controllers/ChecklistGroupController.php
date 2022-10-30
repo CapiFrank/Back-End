@@ -44,14 +44,14 @@ class ChecklistGroupController extends Controller
      * @param  \App\Models\ChecklistGroup  $checklistGroup
      * @return \Illuminate\Http\Response
      */
-    public function show(ChecklistGroup $checklistGroup)
+    public function show(Request $request)
     {
-    if($checklistGroup->has('active'))
+    if($request->has('active'))
     {
-      $group = User::where('active',true)->get();  
+      $group = ChecklistGroup::where('active',true)->get();  
     }else
     {
-      $group = User::all();
+      $group = ChecklistGroup::all();
     }
     return response()->json($group);
     }
@@ -74,9 +74,13 @@ class ChecklistGroupController extends Controller
      * @param  \App\Models\ChecklistGroup  $checklistGroup
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, ChecklistGroup $checklistGroup)
+    public function update(Request $request, $id)
     {
-        //
+      $checklistGroup = ChecklistGroup::find($id);
+      $checklistGroup->name = $request->name;
+      $checklistGroup->save();
+      
+      return response()->json(['message' => "Se ha actualizado el registro", "data" => $checklistGroup ],200);
     }
 
     /**

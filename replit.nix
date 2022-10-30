@@ -1,6 +1,8 @@
 { pkgs }: {
 	deps = [
-		pkgs.twelf
+		pkgs.sudo
+  pkgs.mysql80
+  pkgs.twelf
   pkgs.php80
         pkgs.php80Packages.composer
 	];

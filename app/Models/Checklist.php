@@ -8,8 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Checklist extends Model
 {
     use HasFactory;
-    protected $primaryKey = 'id';
     protected $table = 'checklists';
+    protected $primaryKey = 'id';
     protected $fillable = [
               'name',
               'completed_tasks',

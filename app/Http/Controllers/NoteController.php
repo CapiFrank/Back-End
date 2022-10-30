@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 class NoteController extends Controller
 {
+  
     /**
      * Display a listing of the resource.
      *
@@ -15,6 +16,9 @@ class NoteController extends Controller
     public function index()
     {
         //
+      $note= Note::all();
+
+      return view('',['note'=>$note]);
     }
 
     /**
@@ -36,6 +40,16 @@ class NoteController extends Controller
     public function store(Request $request)
     {
         //
+
+      $request -> validate([
+                           'text'=> 'min:5'              
+      ]);
+      $note = new Note;
+      $note->text = $request ->text;
+      $note->save();
+     return response()->json(['message' => "Se ha insertado la nota"],200);
+     
+      
     }
 
     /**

@@ -31,4 +31,5 @@ class Task extends Model
   public function note(){
     return $this->belongsTo(Note::class, 'note_id');
   }
+  /*Comentario*/
 }

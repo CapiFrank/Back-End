@@ -19,7 +19,7 @@ return new class extends Migration
             $table->boolean('important');
             $table->string('title');
             $table->text('contents');
-            $table->date('final_date');
+            $table->date('final_date')->nullable();
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('note_id');
             $table->unsignedBigInteger('label_id');
