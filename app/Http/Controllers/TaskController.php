@@ -39,12 +39,12 @@ class TaskController extends Controller
     }
     public function show(Request $request)
     {
-      if($request->has('myday'))
+      if($request->has('101'))
       {
         $task = Task::where('my_day',true)->get();  
-      }else if($request->has('important')){
+      }else if($request->has('102')){
         $task = Task::where('important',true)->get();
-      }else if($request->has('planned')){
+      }else if($request->has('103')){
         $task = Task::whereNotNull('final_date')->get();
       }
       else
@@ -62,23 +62,37 @@ class TaskController extends Controller
     public function AgregueAMiDia($id)
     {
       $laTarea = Task::find($id);
+      if($laTarea -> my_day == false && $laTarea -> important == false && $laTarea -> final_date == null)
+      {
       $laTarea -> my_day = true;
       $laTarea -> save();
       return 'Se ha modificado exitosamente';
+      }
+      return 'No se han realizado cambios';
     }
     public function AgregueAImportante($id)
     {
       $laTarea = Task::find($id);
+      if($laTarea -> my_day == false && $laTarea -> important == false && $laTarea -> final_date == null)
+      {
       $laTarea -> important = true;
       $laTarea -> save();
       return 'Se ha modificado exitosamente';
+      }
+      return 'No se han realizado cambios';
     }
     public function AgregueAPlaneado(Request $request)
     {
       $elId = $request -> id;
       $laFecha = $request -> final_date;
-      $laTarea = Task::find($elId);      
-      return $laTarea -> title;
+      $laTarea = Task::find($elId);  
+      if($laTarea -> my_day == false && $laTarea -> important == false && $laTarea -> final_date == null)
+      {
+      $laTarea -> final_date = $laFecha;
+      $laTarea -> save();      
+      return 'Se ha modificado exitosamente';
+      }
+      return 'No se han realizado cambios';
     }
 
     /**
