@@ -44,13 +44,10 @@ class ChecklistGroupController extends Controller
      * @param  \App\Models\ChecklistGroup  $checklistGroup
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request)
-    {
-    if($request->has('active'))
-    {
+    public function show(Request $request){
+    if($request->has('active')){
       $group = ChecklistGroup::where('active',true)->get();  
-    }else
-    {
+    }else{
       $group = ChecklistGroup::all();
     }
     return response()->json($group);
