@@ -81,6 +81,8 @@ class TaskController extends Controller
       }
       return 'No se han realizado cambios';
     }
+
+  
     public function AgregueAPlaneado(Request $request)
     {
       $elId = $request -> id;
@@ -88,9 +90,9 @@ class TaskController extends Controller
       $laTarea = Task::find($elId);  
       if($laTarea -> my_day == false && $laTarea -> important == false && $laTarea -> final_date == null)
       {
-      $laTarea -> final_date = $laFecha;
-      $laTarea -> save();      
-      return 'Se ha modificado exitosamente';
+        $laTarea -> final_date = $laFecha;
+        $laTarea -> save();      
+        return 'Se ha modificado exitosamente';
       }
       return 'No se han realizado cambios';
     }

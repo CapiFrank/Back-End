@@ -20,7 +20,7 @@ return new class extends Migration
             $table->unsignedBigInteger('total_tasks');
             $table->unsignedBigInteger('id_checklist_group');
             $table->timestamps();
-            $table->foreign('id_checklist_group')->references('id')->on('checklist_groups');
+            $table->foreign('id_checklist_group')->references('id')->on('checklist_groups')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

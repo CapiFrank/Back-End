@@ -28,7 +28,7 @@ return new class extends Migration
 
            $table->foreign('note_id')->references('id')->on('notes');
           $table->foreign('label_id')->references('id')->on('labels');
-          $table->foreign('checklist_id')->references('id')->on('checklists');
+          $table->foreign('checklist_id')->references('id')->on('checklists')->onUpdate('cascade')->onDelete('cascade');
             $table->foreign('user_id')->references('id')->on('users');
         });
     }
