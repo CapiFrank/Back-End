@@ -42,7 +42,7 @@ class NoteController extends Controller
         //
 
       $request -> validate([
-                           'text'=> 'min:5'              
+                      'text'=> 'min:5'              
       ]);
       $note = new Note;
       $note->text = $request ->text;
