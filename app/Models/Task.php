@@ -13,6 +13,7 @@ class Task extends Model
            'my_day',
            'important',
            'contents',
+           'title',
            'final_date',
            'note_id',
            'label_id',
