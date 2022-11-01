@@ -15,12 +15,13 @@ class NoteController extends Controller
      */
     public function index()
     {
-        //se agrega el index para el notecontroller
+        
+      // Se agrega el index para el notecontroller
       $note= Note::all();
 
       return view('',['note'=>$note]);
     }
-
+  
     /**
      * Show the form for creating a new resource.
      *
