@@ -15,7 +15,7 @@ class NoteController extends Controller
      */
     public function index()
     {
-        //
+        //se agrega el index para el notecontroller
       $note= Note::all();
 
       return view('',['note'=>$note]);
