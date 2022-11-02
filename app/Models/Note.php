@@ -13,8 +13,11 @@ class Note extends Model
     protected $fillable = [
               'text',
     ];
-
+  
   public function task(){
     return $this->hasMany(Task::class);
   }
+
+  
+  
 }

@@ -27,10 +27,10 @@ class Task extends Model
     return $this->belongsTo(Checklist::class, 'checklist_id');
   }
   public function label(){
-    return $this->belongsTo(Label::class, 'label_id');
+    return $this->hasOne(Label::class, 'label_id');
   }
   public function note(){
-    return $this->belongsTo(Note::class, 'note_id');
+    return $this->hasOne(Note::class, 'note_id');
   }
   /*Comentario*/
 }
