@@ -17,10 +17,11 @@ class ChecklistFactory extends Factory
     public function definition()
     {
         return [
-             'name' => $this->faker->name(),
-             'completed_tasks' => $this->faker->randomDigitNotNull,
-             'total_tasks' => $this->faker->randomDigitNotNull,
-             'id_checklist_group' => ChecklistGroup::factory(),
+            'name' => $this->faker->name(),
+            'completed_tasks' => $this->faker->randomDigitNotNull,
+            'total_tasks' => $this->faker->randomDigitNotNull,
+            //'id_checklist_group' => $this->faker->randomDigitNotNull
+            'id_checklist_group' => ChecklistGroup::factory(),
         ];
     }
 }

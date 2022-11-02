@@ -14,6 +14,6 @@ class ChecklistSeeder extends Seeder
      */
     public function run()
     {
-       \App\Models\Checklist::factory(10)->create();
+         \App\Models\Checklist::factory(10)->create();
     }
 }

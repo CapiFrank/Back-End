@@ -22,10 +22,9 @@ class ChecklistController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
-    }
+
+
+ 
 
     /**
      * Store a newly created resource in storage.
@@ -44,11 +43,20 @@ class ChecklistController extends Controller
      * @param  \App\Models\Checklist  $checklist
      * @return \Illuminate\Http\Response
      */
-    public function show(Checklist $checklist)
-    {
-      $lists = Checklist::all();
-    return response()->json($lists);
+    public function show(Request $request){
+        $checklist = Checklist::all();
+        return response()->json($checklist);
     }
+
+  public function destroy(Request $request, $id)
+      {
+        $checklist = Checklist::find($id);
+        $checklist->delete();
+        return response()->json(['message' => "Se ha eliminado el registro", "data" => $checklist ],200);
+      }
+    
+
+  
 
     /**
      * Show the form for editing the specified resource.
@@ -68,10 +76,6 @@ class ChecklistController extends Controller
      * @param  \App\Models\Checklist  $checklist
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Checklist $checklist)
-    {
-        //
-    }
 
     /**
      * Remove the specified resource from storage.
@@ -79,8 +83,9 @@ class ChecklistController extends Controller
      * @param  \App\Models\Checklist  $checklist
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Checklist $checklist)
-    {
-        //
-    }
+  
+    
+
+
+  
 }
