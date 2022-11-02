@@ -15,12 +15,11 @@ class NoteController extends Controller
      */
     public function index()
     {
-        //
       $note= Note::all();
 
       return view('',['note'=>$note]);
     }
-
+  
     /**
      * Show the form for creating a new resource.
      *
@@ -42,7 +41,7 @@ class NoteController extends Controller
         //
 
       $request -> validate([
-                           'text'=> 'min:5'              
+                      'text'=> 'min:5'              
       ]);
       $note = new Note;
       $note->text = $request ->text;

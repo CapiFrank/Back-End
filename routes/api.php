@@ -2,19 +2,9 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\apiController;
-use App\Http\Controllers\UserController;
-use App\Http\Controllers\ChecklistController;
-use App\Http\Controllers\ChecklistGroupController;
-use App\Http\Controllers\NoteController;
-use App\Http\Controllers\TaskController;
-
-
-
-  
 
 /*
-|-------------------------------------------------------------------------
+|--------------------------------------------------------------------------
 | API Routes
 |--------------------------------------------------------------------------
 |
@@ -23,14 +13,6 @@ use App\Http\Controllers\TaskController;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-
-//Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    //return $request->user();
-//});
-
-
-
-//RECUERDEN IMPORTAR LOS CONTROLADORES COMO ESTÁ ARRIBA
 
 Route::get('/users',[UserController::class,'show']);
 Route::get('/groups',[ChecklistGroupController::class,'show']);
@@ -43,5 +25,7 @@ Route::put('/important/{id}',[TaskController::class,'AgregueAImportante']);
 Route::put('/planeado',[TaskController::class,'AgregueAPlaneado']);
 Route::get('/task',[TaskController::class,'show']);
 Route::delete('/lists/destroy/{id}',[ChecklistController::class,'destroy']);
-
 Route::get('/checklists',[ChecklistController::class,'show']);
+Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+    return $request->user();
+});

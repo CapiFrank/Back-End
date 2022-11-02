@@ -23,3 +23,7 @@ hidden = [
 
 [packager]
 language = "php"
+
+[auth]
+pageEnabled = true
+buttonEnabled = false
