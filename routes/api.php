@@ -19,6 +19,9 @@ use App\Http\Controllers\ChecklistController;
 |
 */
 
+Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+    return $request->user();
+});
 Route::get('/users',[UserController::class,'show']);
 Route::get('/groups',[ChecklistGroupController::class,'show']);
 Route::put('/groups/update/{id}',[ChecklistGroupController::class,'update']);
@@ -31,6 +34,3 @@ Route::put('/planeado',[TaskController::class,'AgregueAPlaneado']);
 Route::get('/task',[TaskController::class,'show']);
 Route::delete('/lists/destroy/{id}',[ChecklistController::class,'destroy']);
 Route::get('/checklists',[ChecklistController::class,'show']);
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
