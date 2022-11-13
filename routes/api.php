@@ -7,6 +7,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\NoteController;
 use App\Http\Controllers\ChecklistGroupController;
 use App\Http\Controllers\ChecklistController;
+use App\Http\Controllers\Api\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,3 +37,5 @@ Route::delete('/lists/destroy/{id}',[ChecklistController::class,'destroy']);
 Route::get('/checklists',[ChecklistController::class,'show']);
 
 Route::post('/register',[UserController::class,'store']);
+
+
