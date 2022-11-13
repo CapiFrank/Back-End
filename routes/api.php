@@ -34,3 +34,5 @@ Route::put('/planeado',[TaskController::class,'AgregueAPlaneado']);
 Route::get('/task',[TaskController::class,'show']);
 Route::delete('/lists/destroy/{id}',[ChecklistController::class,'destroy']);
 Route::get('/checklists',[ChecklistController::class,'show']);
+
+Route::post('/register',[UserController::class,'store']);
