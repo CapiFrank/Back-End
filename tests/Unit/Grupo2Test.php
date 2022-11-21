@@ -79,7 +79,7 @@ class Grupo2Test extends TestCase
     ]);
 
     $usuario = User::make([
-      'id'=>1,                  
+      'id'=>20,                  
       'username'=>'asd',
       'password'=>'asd',
       'first_name'=>'Jose',
