@@ -16,7 +16,11 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+      $users = User::all();
+
+      return response()->json($users);
+
+      
     }
 
     /**
@@ -93,7 +97,8 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        //
+         $users = User::find($id);
+      return response()->json($user);
     }
 
     /**
@@ -103,9 +108,22 @@ class UserController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request, $id)
     {
         //
+       $users = User::find($id);
+
+      $users->username = $request->username;
+      $users->first_name = $request->second_name;
+      $users->second_name = $request->second_name;
+      $users->first_surname = $request->first_surname;
+      $users->second_surname = $request->second_surname;
+      $users->email = $request->email;
+      $users->update();
+      $users->save();
+
+      
+      return response()->json(['message' => "Se ha actualizado el usuario", "data" => $users ],200);
     }
 
     /**
