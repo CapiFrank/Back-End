@@ -42,19 +42,34 @@ class UserController extends Controller
     public function store(Request $request)
     {
       $validator = Validator::make($request->all(),[
-                        'username' => 'required|min:5|max:20',
+                        'username' => 'required|min:5|max:20|unique:users',
                         'password' => 'required|min:8|max:16',
                         'confirm_password' => 'required|same:password',
                         'first_name' => 'required|min:3|max:25',
-                        'second_name' => 'required|min:3|max:25',
                         'first_surname' => 'required|min:3|max:25',
                         'second_surname' => 'required|min:3|max:25',
                         'email' => 'required|email|unique:users'
       ]);
       if($validator->fails()){
+        $username = $validator->errors()->get('username');
+        $email = $validator->errors()->get('email');
+        $username_exist = in_array('The username has already been taken.',$username);
+        $email_exist = in_array('The email has already been taken.',$email);
+        if($username_exist && $email_exist){
+          $response = array_merge($username,$email);
+          return response()->json(['message'=>'Validations fails',
+                                'errors'=> $response],421);
+        }
+        if($username_exist){
+          return response()->json(['message'=>'Validations fails',
+                                'errors'=> $username],422);
+        }
+        if($email_exist){
+          return response()->json(['message'=>'Validations fails',
+                                'errors'=> $email],423);
+        }
         return response()->json(['message'=>'Validations fails',
-                                'errors'=>$validator->errors()
-                                ],400);
+                                'errors'=> $validator->errors()],400);
       }
       $user = User::create([
                   'username' => $request -> username,
