@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
 {
@@ -39,7 +41,34 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $validator = Validator::make($request->all(),[
+                        'username' => 'required|min:5|max:20',
+                        'password' => 'required|min:8|max:16',
+                        'confirm_password' => 'required|same:password',
+                        'first_name' => 'required|min:3|max:25',
+                        'second_name' => 'required|min:3|max:25',
+                        'first_surname' => 'required|min:3|max:25',
+                        'second_surname' => 'required|min:3|max:25',
+                        'email' => 'required|email|unique:users'
+      ]);
+      if($validator->fails()){
+        return response()->json(['message'=>'Validations fails',
+                                'errors'=>$validator->errors()
+                                ],400);
+      }
+      $user = User::create([
+                  'username' => $request -> username,
+                  'password' => Hash::make($request->password),
+                  'first_name' => $request -> first_name,
+                  'second_name' => $request -> second_name,
+                  'first_surname' => $request -> first_surname,
+                  'second_surname' => $request -> second_surname,
+                  'email' => $request -> email,
+                  'role_id' => 1,
+                  'first_time' => true
+      ]);
+      return response()->json(['message'=>'Registration successfull',
+                              'data'=> $user],200);
     }
 
     /**
