@@ -1,6 +1,7 @@
 { pkgs }: {
 	deps = [
-		pkgs.php80
+		pkgs.ocamlPackages.ppxlib
+  pkgs.php80
         pkgs.php80Packages.composer
 	];
 }

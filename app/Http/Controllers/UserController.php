@@ -114,7 +114,7 @@ class UserController extends Controller
        $users = User::find($id);
 
       $users->username = $request->username;
-      $users->first_name = $request->second_name;
+      $users->first_name = $request->first_name;
       $users->second_name = $request->second_name;
       $users->first_surname = $request->first_surname;
       $users->second_surname = $request->second_surname;
