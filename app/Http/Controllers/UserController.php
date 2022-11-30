@@ -79,7 +79,7 @@ class UserController extends Controller
                   'first_surname' => $request -> first_surname,
                   'second_surname' => $request -> second_surname,
                   'email' => $request -> email,
-                  'role_id' => 1,
+                  'role_id' => 2,
                   'first_time' => true
       ]);
       return response()->json(['message'=>'Registration successfull',
