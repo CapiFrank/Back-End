@@ -19,60 +19,52 @@ class UserTest extends TestCase
     public function test_store()
     {
       Role::factory()->create();
+      Role::create(['id'=>2,'type'=>'common_user']);
       $regis_correct = $this->post('api/register', [
-         'username'=>'esunaprueba',
+         'username'=>'primera',
          'password'=>'esuna123',
          'confirm_password'=>'esuna123',
          'first_name'=>'juan',
          'second_name'=>'david',
          'first_surname'=>'rodriguez',
          'second_surname'=>'mendez',
-         'email'=>'123@123.com'
+         'email'=>'123@primera.com'
       ]);
       
       $failed_match = $this->post('api/register', [
-         'username'=>'esunaprueba',
+         'username'=>'segunda',
          'password'=>'esuna123',
          'confirm_password'=>'esuna12',
          'first_name'=>'juan',
          'second_name'=>'david',
          'first_surname'=>'rodriguez',
          'second_surname'=>'mendez',
-         'email'=>'123@123.com'
+         'email'=>'123@segunda.com'
       ]);
       
       $incomplete = $this->post('api/register', [
-         'username'=>'esunaprueba',
+         'username'=>'tercera',
          'password'=>'esuna123',
          'confirm_password'=>'esuna123',
          'first_name'=>'',
          'second_name'=>'david',
          'first_surname'=>'rodriguez',
          'second_surname'=>'mendez',
-         'email'=>'123@123.com'
+         'email'=>'123@tercera.com'
       ]);
-      $duplicated = $this->post('api/register', [[
-         'username'=>'esunaprueba',
+      $duplicated = $this->post('api/register', [
+         'username'=>'primera',
          'password'=>'esuna123',
          'confirm_password'=>'esuna123',
          'first_name'=>'juan',
          'second_name'=>'david',
          'first_surname'=>'rodriguez',
          'second_surname'=>'mendez',
-         'email'=>'123@123.com'
-      ],[
-         'username'=>'esunaprueba',
-         'password'=>'esuna123',
-         'confirm_password'=>'esuna123',
-         'first_name'=>'juan',
-         'second_name'=>'david',
-         'first_surname'=>'rodriguez',
-         'second_surname'=>'mendez',
-         'email'=>'123@123.com'
-      ]]);
+         'email'=>'123@primera.com'
+                                ]);
       $regis_correct->assertStatus(200);
       $failed_match->assertStatus(400);
       $incomplete->assertStatus(400);
-      $duplicated->assertStatus(400);
+      $duplicated->assertStatus(421);
     }
 }
