@@ -126,6 +126,7 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         //
+     
        $users = User::find($id);
 
       $users->username = $request->username;

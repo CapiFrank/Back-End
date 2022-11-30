@@ -26,7 +26,7 @@ class Grupo2Test extends TestCase
     ]); 
     
    $usuario = User::create([ 
-      'id'=>2,
+      
       'username'=>'asdasasdd',
       'password'=>'asdasdad',
       'first_name'=>'Jose',
@@ -47,9 +47,9 @@ class Grupo2Test extends TestCase
       'email'=>'categtftftfo@gmail.com'
       ];    
     
-      $update_correct = $this->put('api/users/update/2',$data);
+      $update_correct = $this->put('api/users/update/1',$data);
 
-     $update_correct->assertStatus(500);        
+     $update_correct->assertStatus(200);        
     }
   
 }
