@@ -7,8 +7,9 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\NoteController;
 use App\Http\Controllers\ChecklistGroupController;
 use App\Http\Controllers\ChecklistController;
+use App\Http\Controllers\PageController;
 use App\Http\Controllers\Api\AuthController;
-
+use App\Http\Controllers\apiController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -37,4 +38,5 @@ Route::delete('/lists/destroy/{id}',[ChecklistController::class,'destroy']);
 Route::get('/checklists',[ChecklistController::class,'show']);
 Route::put('/users/update/{id}',[UserController::class,'update']);
 Route::put('/users/edit',[UserController::class,'edit']);
-Route::post('/register',[UserController::class,'store']);
+Route::post('/Page/save',[PageController::class,'store']);
+Route::get('/Page',[PageController::class,'show']);
