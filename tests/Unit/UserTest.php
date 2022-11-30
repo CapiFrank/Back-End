@@ -18,6 +18,7 @@ class UserTest extends TestCase
      */
     public function test_store()
     {
+      Role::create(['id'=>2,'type'=>'common_user']);
       Role::factory()->create();
         $user = new User([
          'username'=>'esunaprueba',
@@ -28,7 +29,7 @@ class UserTest extends TestCase
          'first_surname'=>'rodriguez',
          'second_surname'=>'mendez',
          'email'=>'123@123.com',
-         'role_id'=>1,
+         'role_id'=>2,
          'first_time'=>true
       ]);
       
@@ -37,7 +38,7 @@ class UserTest extends TestCase
         'email' => '123@123.com',
     ]);
       $this->assertDatabaseHas('roles', [
-        'id' => 1,
+        'id' => 2,
     ]);
     }
 }

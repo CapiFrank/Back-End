@@ -40,7 +40,7 @@ class apiController extends Controller
 
   public function login(Request $request)
   {
-    $response = ["status"=>0,"msg"=>""];
+   $response = ["status"=>0,"msg"=>"","rol"=>""];
     $data = json_decode($request->getContent());
     $user = User::where('email',$data->email)->first();
     if($user)
@@ -49,6 +49,7 @@ class apiController extends Controller
         $token = $user->createToken("example");
         $response["status"] = 1;
         $response["msg"] = "$token->plainTextToken";
+        $response["rol"] = $user->role_id;
       }else
       {
         $response["msg"] = "Error 406...Credenciales incorrectas";

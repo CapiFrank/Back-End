@@ -7,8 +7,9 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\NoteController;
 use App\Http\Controllers\ChecklistGroupController;
 use App\Http\Controllers\ChecklistController;
+use App\Http\Controllers\PageController;
 use App\Http\Controllers\Api\AuthController;
-
+use App\Http\Controllers\apiController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -27,7 +28,7 @@ Route::get('/users',[UserController::class,'show']);
 Route::get('/groups',[ChecklistGroupController::class,'show']);
 Route::put('/groups/update/{id}',[ChecklistGroupController::class,'update']);
 Route::post('/login',[apiController::class,'login']);
-Route::post('/register',[apiController::class,'register']);
+Route::post('/register',[UserController::class,'store']);
 Route::post('/note',[NoteController::class,'store']);
 Route::put('/midia/{id}',[TaskController::class,'AgregueAMiDia']);
 Route::put('/important/{id}',[TaskController::class,'AgregueAImportante']);
@@ -37,4 +38,5 @@ Route::delete('/lists/destroy/{id}',[ChecklistController::class,'destroy']);
 Route::get('/checklists',[ChecklistController::class,'show']);
 Route::put('/users/update/{id}',[UserController::class,'update']);
 Route::put('/users/edit',[UserController::class,'edit']);
-Route::post('/register',[UserController::class,'store']);
+Route::post('/Page/save',[PageController::class,'store']);
+Route::get('/Page',[PageController::class,'show']);

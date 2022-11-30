@@ -19,6 +19,7 @@ class UserTest extends TestCase
     public function test_store()
     {
       Role::factory()->create();
+      Role::create(['id'=>2,'type'=>'common_user']);
       $regis_correct = $this->post('api/register', [
          'username'=>'primera',
          'password'=>'esuna123',
