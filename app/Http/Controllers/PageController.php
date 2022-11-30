@@ -35,7 +35,18 @@ class PageController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+        $request->validate([
+          'title'=> 'min:4',
+          'subtitle'=> 'min:4',
+          'content'=> 'min:10'
+        ]);
+      $Page = new Page;
+      $Page->title= $request->title;
+      $Page->subtitle= $request->subtitle;
+      $Page->content= $request->content;
+      $Page-> save();
+        return response()->json(['message' => "Se ha guardado la nueva pagina"],200);
     }
 
     /**
@@ -44,9 +55,17 @@ class PageController extends Controller
      * @param  \App\Models\Page  $page
      * @return \Illuminate\Http\Response
      */
-    public function show(Page $page)
+    public function show(Request $request)
     {
-        //
+     
+     if($request->has('active'))
+    {
+      $pages = Page::where('active',true)->get();  
+    }else
+    {
+      $pages = Page::all();
+    }
+    return response()->json($pages);
     }
 
     /**
