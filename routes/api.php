@@ -28,7 +28,7 @@ Route::get('/users',[UserController::class,'show']);
 Route::get('/groups',[ChecklistGroupController::class,'show']);
 Route::put('/groups/update/{id}',[ChecklistGroupController::class,'update']);
 Route::post('/login',[apiController::class,'login']);
-Route::post('/register',[apiController::class,'register']);
+Route::post('/register',[UserController::class,'store']);
 Route::post('/note',[NoteController::class,'store']);
 Route::put('/midia/{id}',[TaskController::class,'AgregueAMiDia']);
 Route::put('/important/{id}',[TaskController::class,'AgregueAImportante']);

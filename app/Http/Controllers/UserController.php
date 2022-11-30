@@ -79,7 +79,7 @@ class UserController extends Controller
                   'first_surname' => $request -> first_surname,
                   'second_surname' => $request -> second_surname,
                   'email' => $request -> email,
-                  'role_id' => 1,
+                  'role_id' => 2,
                   'first_time' => true
       ]);
       return response()->json(['message'=>'Registration successfull',
@@ -129,7 +129,7 @@ class UserController extends Controller
        $users = User::find($id);
 
       $users->username = $request->username;
-      $users->first_name = $request->second_name;
+      $users->first_name = $request->first_name;
       $users->second_name = $request->second_name;
       $users->first_surname = $request->first_surname;
       $users->second_surname = $request->second_surname;
