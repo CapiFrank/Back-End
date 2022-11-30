@@ -17,6 +17,13 @@ class PageTest extends TestCase
      */
      public function test_create_page()
     {
-   
+    $page = Page::create([     
+      'title'=>'PaginaPrueba',
+      'subtitle'=>'subtitulo de la pagina',
+      'content'=>'Esta es la descripcion de la pagina de prueba'           
+        ]);
+      
+
+    $this->assertEquals('PaginaPrueba',$page->title);
     }
 }
